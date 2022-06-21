@@ -40,7 +40,7 @@ jobs:
         run: dotnet publish CourseNoteV3/CourseNoteV3.csproj -c Release -o CourseNoteV3/release --nologo
         
       # changes the base-tag in index.html from '/' to 'CourseNoteV3' to match GitHub Pages repository subdirectory
-      - name: Change base-tag in index.html from / to CourseNoteV2
+      - name: Change base-tag in index.html from / to CourseNoteV3
         run: sed -i 's/<base href="\/" \/>/<base href="\/CourseNoteV3\/" \/>/g' CourseNoteV3/release/wwwroot/index.html
         
       # copy index.html to 404.html to serve the same file when a file is not found
