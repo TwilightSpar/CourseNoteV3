@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\CourseNoteV3",
+    "\\CourseNoteV3\\Shared"
   ],
+  "SelectedNode": "\\CourseNoteV3\\Shared\\NavMenu.razor",
   "PreviewInSolutionExplorer": false
 }
