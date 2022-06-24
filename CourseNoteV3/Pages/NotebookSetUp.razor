@@ -1,0 +1,145 @@
+﻿@page "/NotebookSetUp"
+
+<div class="container-fluid">
+        <main class="tm-main">
+            <div class='typora-export-content'>
+                <div id='write' class=''>
+                    <h2 id='create-and-open-jupyter-notebook-on-windows-through-right-click-menu'><span>Create and Open
+                            Jupyter
+                            Notebook on Windows through right click menu</span></h2>
+                    <h3 id='problem'><span>Problem:</span></h3>
+                    <p><span>How did you open Jupyter Notebook? How did you launch an exist Notebook? Here is what I did
+                            before
+                            (pretty annoying):</span></p>
+                    <p><span>open anaconda navigation:</span></p>
+                    <p><img src="../img/anaconda.png" referrerpolicy="no-referrer" alt="anaconda"></p>
+                    <p><span>find the file in the path:</span></p>
+                    <p><img src="../img/find.png" alt="find path" style="zoom:67%;" /></p>
+                    <p><span>If I need to create a new file, I need to open an exist file then create a new one:</span>
+                    </p>
+                    <p><img src="../img/create newfile old.png" alt="create new old" style="zoom:67%;" /></p>
+                    <p><span>Is there a faster way to open an exist notebook file, and create a new one. Just like
+                            create a new
+                            word file and open it?</span></p>
+                    <p><img src="../img/Right Click Menu.png" alt="right click" style="zoom:50%;" /></p>
+                    <h3 id='open-an-existing-notebook'><span>Open an existing Notebook</span></h3>
+                    <p><span>Actually, we can open the Notebook, with some cmd commands.</span></p>
+                    <p><span>First run </span><code>cwp.py</code><span> to set path to anaconda environment
+                            directory:</span>
+                    </p>
+                    <blockquote>
+                        <p><span>python cwp.py [path]</span></p>
+                        <p><span>Ex: C:\anaconda3\python.exe C:\anaconda3\cwp.py C:\anaconda3\envs\CAMenv </span></p>
+                    </blockquote>
+                    <p><span>Then use </span><code>jupyter-notebook-script.py</code><span> to open the file. Change
+                        </span><code>[CAMenv]</code><span> to your environment.</span></p>
+                    <blockquote>
+                        <p><span>[in CAMenv environment]python jupyter-notebook-script.py %1</span></p>
+                        <p><span>Ex: C:\anaconda3\envs\CAMenv\python.exe
+                                C:\anaconda3\envs\CAMenv\Scripts\jupyter-notebook-script.py %1</span></p>
+                    </blockquote>
+                    <p><span>So now, we can put these two command into a </span><code>.txt</code><span> file,and change
+                            the
+                            extension to `.bat``</span></p>
+                    <p><img src="../img/jupyterOpenFile.png" referrerpolicy="no-referrer" alt="open"></p>
+                    <p><span>find a notebook and use this batch file to open it.</span></p>
+                    <p><img src="../img/openwith.png" alt="openwith" style="zoom: 67%;" /></p>
+                    <p><span>Now you can open the </span><code>.ipynb</code><span> file with double click.</span></p>
+                    <h3 id='create-a-new-notebook-in-right-click-menu'><span>Create a new Notebook in right click
+                            menu</span>
+                    </h3>
+                    <p><span>The idea comes from </span><a
+                            href='[python - How to create and open a jupyter notebook ipynb file directly from terminal - Stack Overflow](https://stackoverflow.com/questions/48946639/how-to-create-and-open-a-jupyter-notebook-ipynb-file-directly-from-terminal)'><span>this
+                                link</span></a><span>. However this link is for Linux system. We will first write a
+                            python file
+                            to create the notebook for us.</span></p>
+                    <blockquote>
+                        <pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="py"
+                            style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="py"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51875px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;">
+                <div class="CodeMirror-measure"></div>
+                <div class="CodeMirror-code" role="presentation" style="">
+
+                    <pre class=" CodeMirror-line "
+                        role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">"""create-notebook.py</span></span></pre>
+
+                    <pre class=" CodeMirror-line "
+                        role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp; Creates a minimal jupyter notebook (.ipynb)</span></span></pre>
+                    <pre class=" CodeMirror-line "
+                        role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp; Usage: create-notebook &lt;notebook&gt;</span></span></pre>
+                    <pre class=" CodeMirror-line "
+                        role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">"""</span></span></pre>
+                    <pre class=" CodeMirror-line "
+                        role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="cm-variable">sys</span></span></pre>
+                    <pre class=" CodeMirror-line "
+                        role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">from</span> <span class="cm-variable">notebook</span> <span class="cm-keyword">import</span> <span class="cm-variable">transutils</span> <span class="cm-keyword">as</span> <span class="cm-variable">_</span></span></pre>
+                    <div class="" style="position: relative;">
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">from</span> <span class="cm-variable">notebook</span>.<span class="cm-property">services</span>.<span class="cm-property">contents</span>.<span class="cm-property">filemanager</span> <span class="cm-keyword">import</span> <span class="cm-variable">FileContentsManager</span> <span class="cm-keyword">as</span> <span class="cm-variable">FCM</span></span></pre>
+                    </div>
+                    <pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+        </span></span></pre>
+                    <pre class=" CodeMirror-line "
+                        role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">try</span>:</span></pre>
+                    <pre class=" CodeMirror-line "
+                        role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">notebook_fname</span> <span class="cm-operator">=</span> <span class="cm-variable">sys</span>.<span class="cm-property">argv</span>[<span class="cm-number">1</span>].<span class="cm-property">strip</span>(<span class="cm-string">'.ipynb'</span>)</span></pre>
+                    <pre class=" CodeMirror-line "
+                        role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">except</span> <span class="cm-variable">IndexError</span>:</span></pre>
+                    <pre class=" CodeMirror-line "
+                        role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-builtin">print</span>(<span class="cm-string">"Usage: create-notebook &lt;notebook&gt;"</span>)</span></pre>
+                    <pre class=" CodeMirror-line "
+                        role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">exit</span>()</span></pre>
+                    <div class="" style="position: relative;">
+                        <pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+        </span></span></pre>
+                    </div>
+                    <pre class=" CodeMirror-line "
+                        role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">notebook_fname</span> <span class="cm-operator">+=</span> <span class="cm-string">'.ipynb'</span> &nbsp;<span class="cm-comment"># ensure .ipynb suffix is added</span></span></pre>
+                    <pre class=" CodeMirror-line "
+                        role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">FCM</span>().<span class="cm-property">new</span>(<span class="cm-variable">path</span><span class="cm-operator">=</span><span class="cm-variable">notebook_fname</span>)</span></pre>
+                </div>
+            </div>
+    </div>
+    </div>
+    </div>
+    <div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 369px;"></div>
+    <div class="CodeMirror-gutters" style="display: none; height: 369px;"></div>
+    </div>
+    </div>
+    </pre>
+    </blockquote>
+    <p>&nbsp;</p>
+    <p><span>This file will accept an argument as the filename. The usage is
+        </span><code>python create-notebook.py Newnotebook</code></p>
+    <p><span>Now we will create a batch file (name it </span><code>create_new_notebook.bat</code><span>), Change
+        </span><code>[CAMenv]</code><span> to your environment:</span></p>
+    <blockquote>
+        <p><span>conda activate CAMenv &amp; python.exe C:\create-notebook.py new_notebook</span></p>
+    </blockquote>
+    <p>&nbsp;</p>
+    <p><strong><span>Potential warning:</span></strong><span> Some python virtual environment make not support this
+            line:
+        </span><code>from notebook.services.contents.filemanager import FileContentsManager as FCM</code><span>. I
+            choose to run this file in my </span><code>conda</code><span> environment, so run
+        </span><code>conda activate CAMenv</code><span> command first.</span></p>
+    <h5 id='interpretation'><span>Interpretation:</span></h5>
+    <p><span> </span><code>&amp;</code><span> in batch file means run the next command after finish the former one.
+            Suppose the create-notebook.py file is under </span><code>C:\</code><span> drive, and the environment is
+        </span><code>CAMenv</code><span>.</span></p>
+    <h5 id='add-to-right-click-menu'><span>Add to Right Click Menu:</span></h5>
+    <p><span>To open the file in Right Click Menu, we need to change the registry file. Open
+        </span><code>Registry editor</code><span> in windows. Search this path and add
+        </span><code>New Jupyter Notebook</code><span> key and </span><code>command</code><span> subkey.
+            Change</span><code>command</code><span> subkey value to the path you put the </span><code>.bat</code><span>
+            file.</span></p>
+    <p><img src="../img/regit.png" referrerpolicy="no-referrer" alt="regit"></p>
+    <p><span>Now you should see a new option in the Right Click Menu:</span></p>
+    <p><img src="../img/Right Click Menu.png" alt="right click" style="zoom:50%;" /></p>
+    </div>
+    </div>
+
+    </main>
+    </div>
+
+@code {
+
+}
