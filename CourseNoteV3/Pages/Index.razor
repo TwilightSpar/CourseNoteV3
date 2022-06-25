@@ -88,14 +88,14 @@
 
             <article class="col-12 col-md-6 tm-post">
                 <hr class="tm-hr-primary">
-                <a href="./post/Jupyter Notebook.html" class="effect-lily tm-post-link tm-pt-20">
+                <a href="@StatUrl" class="effect-lily tm-post-link tm-pt-20">
                     <div class="tm-post-link-inner">
                         <img src="img/book_cover.png" alt="Image" class="img-fluid">
                     </div>
                     @*<h3 class="post-subtitle">Problems look mighty small from 150 miles up</h3>*@
                 </a>
                 <div class="post-preview">
-                    <a href="post.html">
+                    <a href="@StatUrl">
                         <h2 class="post-title">Statistical Patter Recognition</h2>
                         @*<h3 class="post-subtitle">Problems look mighty small from 150 miles up</h3>*@
                     </a>
@@ -154,8 +154,9 @@
 
 
 @code  {
-    public string NoteBookUrl { get; set; } = "\\NotebookSetUp";
-    public string GitSetupUrl { get; set; } = "\\GitSetup";
+    public string NoteBookUrl { get; set; } = "\\GitSetup";
+    public string GitSetupUrl { get; set; } = "\\NotebookSetUp";
+    public string StatUrl { get; set; } = "\\StatPatt";
 
 
 }
