@@ -7,7 +7,7 @@
   "linkerEnabled": true,
   "resources": {
     "assembly": {
-      "CourseNoteV3.dll": "sha256-v7a8Wj9WdSK4Mxi4R2fGreM39qNEy6JvSX6L\/uNoLhk=",
+      "CourseNoteV3.dll": "sha256-Q+2Cv6H4Wk\/+kOfcj2ZYInr0MUnp5+z4OQeK0d40JMw=",
       "Microsoft.AspNetCore.Components.dll": "sha256-NwyVeTUXjz0bc2LbSoCSpCDbrBrqM1GFvUE2Fk1KVik=",
       "Microsoft.AspNetCore.Components.Web.dll": "sha256-PdYKNU3JFUSCwZkUC2EvjucmTjwE3xrGoa+SvpFmvWs=",
       "Microsoft.AspNetCore.Components.WebAssembly.dll": "sha256-\/Dy2ObLVYzJ6Xlan\/StjJDmeXXNbucbohR2dQMoH3Zo=",
